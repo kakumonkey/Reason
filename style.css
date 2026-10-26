@@ -1,0 +1,242 @@
+:root {
+  --bg: #f6f3ee;
+  --card: #ffffff;
+  --text: #2b2b33;
+  --muted: #6b6b76;
+  --accent: #4a7c74;
+  --accent-dark: #386159;
+  --help: #c8553d;
+  --help-dark: #a84330;
+  --border: #e3ded5;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px 20px;
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent-dark);
+}
+
+.lang a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.lang a.active,
+.lang a:hover {
+  color: var(--accent-dark);
+  background: #e6efed;
+}
+
+.hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 20px 32px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 620px;
+  margin: 0 auto 24px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.btn:hover { background: var(--accent-dark); }
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+section { margin: 48px 0; }
+
+h2 {
+  font-size: 1.5rem;
+  margin: 0 0 12px;
+}
+
+.emergency {
+  background: #fdf0ec;
+  border: 1px solid #f0c9bf;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+.card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+.card .num { font-size: 1.3rem; font-weight: 700; color: var(--accent-dark); }
+.card p { margin: 4px 0 0; color: var(--muted); font-size: 0.95rem; }
+
+.note {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 16px;
+}
+
+.quote {
+  background: #e6efed;
+  border-radius: 14px;
+  padding: 24px;
+  font-size: 1.15rem;
+  text-align: center;
+}
+
+.help-fab {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  background: var(--help);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 14px 22px;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.help-fab:hover { background: var(--help-dark); }
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 24px 20px 90px;
+}
+
+/* ---------- Sección de música ---------- */
+
+@property --c1 { syntax: "<color>"; inherits: true; initial-value: #0b2238; }
+@property --c2 { syntax: "<color>"; inherits: true; initial-value: #1b6ca8; }
+
+.music {
+  --c1: #0b2238;
+  --c2: #1b6ca8;
+  margin: 0;
+  background: linear-gradient(135deg, var(--c1), var(--c2), var(--c1));
+  background-size: 250% 250%;
+  animation: flow 14s ease-in-out infinite;
+  transition: --c1 1.4s ease, --c2 1.4s ease;
+  color: #fff;
+  padding: 60px 20px 40px;
+}
+
+@keyframes flow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.music-head {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  text-align: center;
+}
+
+.music-head p { opacity: 0.85; }
+
+.scene {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.album-card {
+  max-width: 460px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  padding: 28px;
+  opacity: 0.35;
+  transform: translateY(30px) scale(0.97);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scene.active .album-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.album-card h3 { margin: 0; font-size: 1.8rem; }
+.album-card span { display: block; opacity: 0.75; margin-bottom: 12px; }
+
+.album-card a {
+  display: inline-block;
+  margin-top: 8px;
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+}
+
+.cover {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin: 0 auto 18px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music { animation: none; }
+  .album-card { transition: none; }
+}

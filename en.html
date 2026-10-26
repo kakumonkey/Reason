@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Reason | Support in difficult moments</title>
+    <meta name="description" content="If you are going through a hard time, you are not alone. Find crisis lines and support in your country.">
+    <link rel="alternate" hreflang="es" href="index.html">
+    <link rel="alternate" hreflang="en" href="en.html">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <span class="brand">Find a Reason</span>
+        <nav class="lang" aria-label="Language">
+            <a href="index.html" hreflang="es">ES</a>
+            <a href="en.html" class="active" hreflang="en">EN</a>
+        </nav>
+    </header>
+
+    <a href="#help" class="help-fab">I need help now</a>
+
+    <section class="hero">
+        <h1>You don't have to go through this alone.</h1>
+        <p>If you are going through a very hard time, you are in a safe place. Talking to someone can be the first step, and there are people ready to listen.</p>
+        <a href="#help" class="btn">See crisis lines</a>
+    </section>
+
+    <main>
+
+        <section id="help">
+            <h2>Get help now</h2>
+            <div class="emergency">
+                <strong>If you are in immediate danger</strong>, call your local emergency number (for example 911 in the Americas, 112 in Europe) or go to the nearest emergency room.
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>United States</h3>
+                    <div class="num">988</div>
+                    <p>Suicide &amp; Crisis Lifeline. Call or text.</p>
+                </div>
+                <div class="card">
+                    <h3>Canada</h3>
+                    <div class="num">988</div>
+                    <p>Suicide Crisis Helpline. Call or text.</p>
+                </div>
+                <div class="card">
+                    <h3>United Kingdom &amp; Ireland</h3>
+                    <div class="num">116 123</div>
+                    <p>Samaritans, free and open 24/7.</p>
+                </div>
+                <div class="card">
+                    <h3>Spain</h3>
+                    <div class="num">024</div>
+                    <p>Suicide prevention helpline (Spanish).</p>
+                </div>
+                <div class="card">
+                    <h3>Argentina</h3>
+                    <div class="num">135</div>
+                    <p>Centro de Asistencia al Suicida (Buenos Aires area). Elsewhere: (011) 5275-1135.</p>
+                </div>
+                <div class="card">
+                    <h3>Mexico</h3>
+                    <div class="num">800 911 2000</div>
+                    <p>Línea de la Vida (Spanish).</p>
+                </div>
+                <div class="card">
+                    <h3>Other countries</h3>
+                    <div class="num"><a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a></div>
+                    <p>International directory of helplines by country and language.</p>
+                </div>
+            </div>
+
+            <p class="note">Phone numbers can change. Please confirm them on each service's official website.</p>
+        </section>
+
+        <section>
+            <h2>Something to hold on to today</h2>
+            <div class="quote">
+                What you feel right now is real, but it is not permanent. The darkest moments pass, and many people who thought there was no way out are doing better today.
+            </div>
+        </section>
+
+        <section>
+            <h2>Small steps</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Talk to someone</h3>
+                    <p>A friend, a family member or a helpline. You don't need the perfect words.</p>
+                </div>
+                <div class="card">
+                    <h3>Move away from anything that could hurt you</h3>
+                    <p>If you can, go to a safe place and be near other people.</p>
+                </div>
+                <div class="card">
+                    <h3>Reach out to a professional</h3>
+                    <p>A therapist or doctor can support you. Asking for help takes courage.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Coming soon</h2>
+            <p>We are working on a moderated, respectful community space where people can share and support each other.</p>
+        </section>
+
+    </main>
+
+    <section class="music" id="music">
+        <div class="music-head">
+            <h2>Music to keep you company</h2>
+            <p>Sometimes a song says what we can't. These albums kept me company.</p>
+        </div>
+
+        <article class="scene" data-c1="#0b2238" data-c2="#1b6ca8">
+            <div class="album-card">
+                <img class="cover" src="traces.jpg" alt="Album cover of TRACES VOL.2 by the GazettE" loading="lazy">
+                <h3>TRACES VOL.2</h3>
+                <span>the GazettE · 2017</span>
+                <p>The members of gazettE offer in this album a very atmospheric and sentimental stop and understanding the feelings of their loved ones as themselves, if you are going through a moment of melancholy you could try listening to "Cassis", "Calm Envy", "Without a Trace" Etc..</p>
+                <a href="https://open.spotify.com/search/TRACES%20VOL.2%20the%20GazettE" target="_blank" rel="noopener">Listen on Spotify</a>
+            </div>
+        </article>
+
+        <article class="scene" data-c1="#3b2a10" data-c2="#d09a3c">
+            <div class="album-card">
+                <h3>Your next recommendation</h3>
+                <span>Artist · Year</span>
+                <p>Copy this scene to add more albums and change the colors in data-c1 and data-c2.</p>
+                <a href="https://open.spotify.com" target="_blank" rel="noopener">Listen on Spotify</a>
+            </div>
+        </article>
+    </section>
+
+    <footer>
+        This site offers information and support, but it does not replace professional medical or psychological care.
+    </footer>
+
+    <script>
+      const music = document.querySelector('.music');
+      const scenes = document.querySelectorAll('.scene');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            music.style.setProperty('--c1', entry.target.dataset.c1);
+            music.style.setProperty('--c2', entry.target.dataset.c2);
+            scenes.forEach((s) => s.classList.toggle('active', s === entry.target));
+          }
+        });
+      }, { threshold: 0.6 });
+
+      scenes.forEach((s) => observer.observe(s));
+    </script>
+
+</body>
+</html>

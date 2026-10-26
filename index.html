@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuentra una razón | Apoyo en momentos difíciles</title>
+    <meta name="description" content="Si estás pasando por un momento difícil, no estás solo/a. Encuentra líneas de ayuda y apoyo en tu país.">
+    <link rel="alternate" hreflang="en" href="en.html">
+    <link rel="alternate" hreflang="es" href="index.html">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <span class="brand">Encuentra una razón</span>
+        <nav class="lang" aria-label="Idioma">
+            <a href="index.html" class="active" hreflang="es">ES</a>
+            <a href="en.html" hreflang="en">EN</a>
+        </nav>
+    </header>
+
+    <a href="#ayuda" class="help-fab">Necesito ayuda ahora</a>
+
+    <section class="hero">
+        <h1>No tienes que pasar por esto a solas.</h1>
+        <p>Si estás atravesando un momento muy difícil, estás en un lugar seguro. Hablar con alguien puede ser el primer paso, y hay personas listas para escucharte.</p>
+        <a href="#ayuda" class="btn">Ver líneas de ayuda</a>
+    </section>
+
+    <main>
+
+        <section id="ayuda">
+            <h2>Ayuda ahora</h2>
+            <div class="emergency">
+                <strong>Si estás en peligro inmediato</strong>, llama a los servicios de emergencia de tu país (por ejemplo 911 en América, 112 en Europa) o acude a la guardia médica más cercana.
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Argentina</h3>
+                    <div class="num">135</div>
+                    <p>Centro de Asistencia al Suicida (CABA y GBA). Desde el resto del país: (011) 5275-1135.</p>
+                </div>
+                <div class="card">
+                    <h3>España</h3>
+                    <div class="num">024</div>
+                    <p>Línea de atención a la conducta suicida.</p>
+                </div>
+                <div class="card">
+                    <h3>México</h3>
+                    <div class="num">800 911 2000</div>
+                    <p>Línea de la Vida.</p>
+                </div>
+                <div class="card">
+                    <h3>Estados Unidos</h3>
+                    <div class="num">988</div>
+                    <p>Línea de prevención del suicidio y crisis. Atención también en español.</p>
+                </div>
+                <div class="card">
+                    <h3>Otros países</h3>
+                    <div class="num"><a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a></div>
+                    <p>Directorio internacional de líneas de ayuda por país e idioma.</p>
+                </div>
+            </div>
+
+            <p class="note">Los números pueden cambiar. Te recomendamos confirmarlos en la web oficial de cada servicio.</p>
+        </section>
+
+        <section>
+            <h2>Algo que puede ayudarte hoy</h2>
+            <div class="quote">
+                Lo que sientes ahora es real, pero no es permanente. Los momentos más oscuros pasan, y mucha gente que pensó que no había salida hoy está mejor.
+            </div>
+        </section>
+
+        <section>
+            <h2>Pequeños pasos</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Habla con alguien</h3>
+                    <p>Un amigo, un familiar o una línea de ayuda. No necesitas tener las palabras perfectas.</p>
+                </div>
+                <div class="card">
+                    <h3>Aléjate de lo que pueda dañarte</h3>
+                    <p>Si puedes, ponte en un lugar seguro y cerca de otras personas.</p>
+                </div>
+                <div class="card">
+                    <h3>Busca apoyo profesional</h3>
+                    <p>Un psicólogo o psiquiatra puede acompañarte. Pedir ayuda es un acto de valentía.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Próximamente</h2>
+            <p>Estamos trabajando en un espacio de comunidad, moderado y respetuoso, donde las personas puedan compartir y apoyarse.</p>
+        </section>
+
+    </main>
+
+    <section class="music" id="musica">
+        <div class="music-head">
+            <h2>Música para acompañarte</h2>
+            <p>A veces una canción dice lo que no podemos decir. Estos álbumes me acompañaron.</p>
+        </div>
+
+        <article class="scene" data-c1="#0b2238" data-c2="#1b6ca8">
+            <div class="album-card">
+                <img class="cover" src="traces.jpg" alt="Carátula del álbum TRACES VOL.2 de the GazettE" loading="lazy">
+                <h3>TRACES VOL.2</h3>
+                <span>the GazettE · 2017</span>
+                <p>Los miembros de gazettE, ofrecen en este album una parada muy atmosferica y sentimental y entendiendo los sentimientos de sus seres queridos como ellos mismos, si estas pasando por un momento de melancolia podrias intentar escuchar "Cassis","Calm Envy", "Without a Trace" Etc.. </p>
+                <a href="https://open.spotify.com/search/TRACES%20VOL.2%20the%20GazettE" target="_blank" rel="noopener">Escuchar en Spotify</a>
+            </div>
+        </article>
+
+        <article class="scene" data-c1="#3b2a10" data-c2="#d09a3c">
+            <div class="album-card">
+                <h3>Tu próxima recomendación</h3>
+                <span>Artista · Año</span>
+                <p>Copia esta escena para agregar más álbumes y cambia los colores en data-c1 y data-c2.</p>
+                <a href="https://open.spotify.com" target="_blank" rel="noopener">Escuchar en Spotify</a>
+            </div>
+        </article>
+    </section>
+
+    <footer>
+        Este sitio ofrece información y apoyo, pero no reemplaza la atención médica ni psicológica profesional.
+    </footer>
+
+    <script>
+      const music = document.querySelector('.music');
+      const scenes = document.querySelectorAll('.scene');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            music.style.setProperty('--c1', entry.target.dataset.c1);
+            music.style.setProperty('--c2', entry.target.dataset.c2);
+            scenes.forEach((s) => s.classList.toggle('active', s === entry.target));
+          }
+        });
+      }, { threshold: 0.6 });
+
+      scenes.forEach((s) => observer.observe(s));
+    </script>
+
+</body>
+</html>
