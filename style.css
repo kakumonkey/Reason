@@ -1,5 +1,5 @@
 :root {
-  --bg: #f6f3ee;
+  --bg: #ffffff;
   --card: #ffffff;
   --text: #2b2b33;
   --muted: #6b6b76;
@@ -20,6 +20,12 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.65;
+}
+
+/* Todo el contenido por encima de los árboles de fondo */
+header, .hero, main, footer, .showcase, .books {
+  position: relative;
+  z-index: 1;
 }
 
 .topbar {
@@ -158,12 +164,67 @@ footer {
   padding: 24px 20px 90px;
 }
 
-/* ---------- Sección de música ---------- */
+/* ---------- Fondo de sakuras ---------- */
+
+#sakura {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.tree {
+  position: fixed;
+  bottom: 0;
+  width: min(34vw, 340px);
+  aspect-ratio: 2 / 3;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.tree-left { left: -30px; }
+.tree-right { right: -30px; transform: scaleX(-1); }
+
+.sway {
+  transform-box: view-box;
+  transform-origin: 52% 100%;
+  animation: sway 7s ease-in-out infinite;
+}
+
+.tree-right .sway { animation-delay: -3s; }
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-1.4deg); }
+  50%      { transform: rotate(1.4deg); }
+}
+
+.trunk {
+  fill: none;
+  stroke: #6b4a44;
+  stroke-width: 12;
+  stroke-linecap: round;
+}
+
+.trunk.thin { stroke-width: 5; }
+
+.b1 { fill: #ffc4d3; }
+.b2 { fill: #ffb0c6; }
+.b3 { fill: #ffdbe5; }
+
+.bloom circle { opacity: 0.85; }
+
+@media (max-width: 700px) {
+  .tree { width: 46vw; opacity: 0.45; }
+}
+
+/* ---------- Carruseles (música y películas) ---------- */
 
 @property --c1 { syntax: "<color>"; inherits: true; initial-value: #0b2238; }
 @property --c2 { syntax: "<color>"; inherits: true; initial-value: #1b6ca8; }
 
-.music {
+.showcase {
   --c1: #0b2238;
   --c2: #1b6ca8;
   margin: 0;
@@ -172,7 +233,12 @@ footer {
   animation: flow 14s ease-in-out infinite;
   transition: --c1 1.4s ease, --c2 1.4s ease;
   color: #fff;
-  padding: 60px 20px 40px;
+  padding: 60px 0 36px;
+}
+
+.showcase.movies {
+  --c1: #2b1d1a;
+  --c2: #c98a5b;
 }
 
 @keyframes flow {
@@ -181,36 +247,64 @@ footer {
   100% { background-position: 0% 50%; }
 }
 
-.music-head {
+.showcase-head {
   max-width: 700px;
-  margin: 0 auto 20px;
+  margin: 0 auto 24px;
+  padding: 0 20px;
   text-align: center;
 }
 
-.music-head p { opacity: 0.85; }
+.showcase-head p { opacity: 0.85; }
 
-.scene {
-  min-height: 70vh;
+.carousel {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.track {
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 10px calc(50% - min(230px, 42vw));
+  scrollbar-width: none;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+}
+
+.track::-webkit-scrollbar { display: none; }
+
+.track.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+  cursor: grabbing;
+  user-select: none;
+}
+
+.slide {
+  flex: 0 0 min(460px, 84vw);
+  scroll-snap-align: center;
+  display: flex;
 }
 
 .album-card {
-  max-width: 460px;
+  flex: 1;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 18px;
   padding: 28px;
   opacity: 0.35;
-  transform: translateY(30px) scale(0.97);
+  transform: translateY(20px) scale(0.97);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.scene.active .album-card {
+.slide.active .album-card {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: none;
 }
 
 .album-card h3 { margin: 0; font-size: 1.8rem; }
@@ -234,9 +328,68 @@ footer {
   margin: 0 auto 18px;
   border-radius: 12px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
+.cover.poster {
+  max-width: 240px;
+  aspect-ratio: 2 / 3;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.arrow:hover { background: rgba(255, 255, 255, 0.32); }
+.arrow:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.arrow:disabled { opacity: 0.25; cursor: default; }
+.arrow.prev { left: 12px; }
+.arrow.next { right: 12px; }
+
+.hint {
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin: 14px 0 0;
+}
+
+/* ---------- Libros ---------- */
+
+.books {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 20px 60px;
+  text-align: center;
+}
+
+.soon {
+  display: inline-block;
+  border: 2px dashed var(--border);
+  border-radius: 14px;
+  padding: 22px 34px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+/* ---------- Accesibilidad ---------- */
+
 @media (prefers-reduced-motion: reduce) {
-  .music { animation: none; }
+  .showcase { animation: none; }
+  .sway { animation: none; }
   .album-card { transition: none; }
+  .track { scroll-behavior: auto; }
 }

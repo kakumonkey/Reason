@@ -11,6 +11,58 @@
 </head>
 <body>
 
+    <!-- Background: petals and sakura trees -->
+    <canvas id="sakura" aria-hidden="true"></canvas>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <g id="sakura-tree">
+                <path class="trunk" d="M210 600 C205 520 195 470 200 400 C205 340 190 300 170 250"/>
+                <path class="trunk thin" d="M200 400 C230 360 270 340 320 300"/>
+                <path class="trunk thin" d="M198 450 C150 420 110 410 72 370"/>
+                <path class="trunk thin" d="M172 255 C150 220 140 190 110 160"/>
+                <path class="trunk thin" d="M172 255 C190 220 215 200 250 170"/>
+                <path class="trunk thin" d="M320 300 C340 280 350 260 370 240"/>
+                <g class="bloom">
+                    <circle class="b1" cx="110" cy="160" r="26"/>
+                    <circle class="b2" cx="90" cy="176" r="20"/>
+                    <circle class="b3" cx="130" cy="178" r="18"/>
+                    <circle class="b2" cx="100" cy="140" r="16"/>
+                    <circle class="b3" cx="126" cy="144" r="14"/>
+
+                    <circle class="b1" cx="250" cy="170" r="28"/>
+                    <circle class="b3" cx="270" cy="190" r="20"/>
+                    <circle class="b2" cx="232" cy="186" r="18"/>
+                    <circle class="b2" cx="262" cy="150" r="16"/>
+                    <circle class="b3" cx="240" cy="148" r="14"/>
+
+                    <circle class="b1" cx="366" cy="240" r="24"/>
+                    <circle class="b2" cx="378" cy="262" r="16"/>
+                    <circle class="b3" cx="352" cy="256" r="18"/>
+                    <circle class="b2" cx="374" cy="220" r="14"/>
+
+                    <circle class="b1" cx="322" cy="300" r="26"/>
+                    <circle class="b3" cx="300" cy="318" r="18"/>
+                    <circle class="b2" cx="340" cy="320" r="18"/>
+                    <circle class="b2" cx="310" cy="280" r="14"/>
+
+                    <circle class="b1" cx="72" cy="370" r="26"/>
+                    <circle class="b2" cx="50" cy="388" r="18"/>
+                    <circle class="b3" cx="92" cy="388" r="18"/>
+                    <circle class="b2" cx="60" cy="350" r="14"/>
+                    <circle class="b3" cx="86" cy="352" r="14"/>
+
+                    <circle class="b1" cx="165" cy="240" r="22"/>
+                    <circle class="b3" cx="150" cy="262" r="18"/>
+                    <circle class="b2" cx="188" cy="252" r="16"/>
+                </g>
+            </g>
+        </defs>
+    </svg>
+
+    <svg class="tree tree-left" viewBox="0 0 400 600" aria-hidden="true"><g class="sway"><use href="#sakura-tree"/></g></svg>
+    <svg class="tree tree-right" viewBox="0 0 400 600" aria-hidden="true"><g class="sway"><use href="#sakura-tree"/></g></svg>
+
     <header class="topbar">
         <span class="brand">Find a Reason</span>
         <nav class="lang" aria-label="Language">
@@ -101,37 +153,97 @@
             </div>
         </section>
 
-        <section>
-            <h2>Coming soon</h2>
-            <p>We are working on a moderated, respectful community space where people can share and support each other.</p>
-        </section>
-
     </main>
 
-    <section class="music" id="music">
-        <div class="music-head">
+    <!-- ===== MUSIC ===== -->
+    <section class="showcase music" id="music">
+        <div class="showcase-head">
             <h2>Music to keep you company</h2>
             <p>Sometimes a song says what we can't. These albums kept me company.</p>
         </div>
 
-        <article class="scene" data-c1="#0b2238" data-c2="#1b6ca8">
-            <div class="album-card">
-                <img class="cover" src="traces.jpg" alt="Album cover of TRACES VOL.2 by the GazettE" loading="lazy">
-                <h3>TRACES VOL.2</h3>
-                <span>the GazettE · 2017</span>
-                <p>The members of gazettE offer in this album a very atmospheric and sentimental stop and understanding the feelings of their loved ones as themselves, if you are going through a moment of melancholy you could try listening to "Cassis", "Calm Envy", "Without a Trace" Etc..</p>
-                <a href="https://open.spotify.com/search/TRACES%20VOL.2%20the%20GazettE" target="_blank" rel="noopener">Listen on Spotify</a>
-            </div>
-        </article>
+        <div class="carousel">
+            <button class="arrow prev" type="button" aria-label="Previous">&#8249;</button>
+            <div class="track" tabindex="0" aria-label="Recommended albums">
 
-        <article class="scene" data-c1="#3b2a10" data-c2="#d09a3c">
-            <div class="album-card">
-                <h3>Your next recommendation</h3>
-                <span>Artist · Year</span>
-                <p>Copy this scene to add more albums and change the colors in data-c1 and data-c2.</p>
-                <a href="https://open.spotify.com" target="_blank" rel="noopener">Listen on Spotify</a>
+                <article class="slide" data-c1="#0b2238" data-c2="#1b6ca8">
+                    <div class="album-card">
+                        <img class="cover" src="traces.jpg" alt="Album cover of TRACES VOL.2 by the GazettE" draggable="false" loading="lazy" onerror="this.style.display='none'">
+                        <h3>TRACES VOL.2</h3>
+                        <span>the GazettE · 2017</span>
+                        <p>The members of gazettE offer in this album a very atmospheric and sentimental stop and understanding the feelings of their loved ones as themselves, if you are going through a moment of melancholy you could try listening to "Cassis", "Calm Envy", "Without a Trace" Etc..</p>
+                        <a href="https://open.spotify.com/search/TRACES%20VOL.2%20the%20GazettE" target="_blank" rel="noopener">Listen on Spotify</a>
+                    </div>
+                </article>
+
+                <article class="slide" data-c1="#2a1f33" data-c2="#b98aa8">
+                    <div class="album-card">
+                        <img class="cover" src="souvlaki.jpg" alt="Album cover of Souvlaki by Slowdive" draggable="false" loading="lazy" onerror="this.style.display='none'">
+                        <h3>Souvlaki</h3>
+                        <span>Slowdive · 1994</span>
+                        <p>Nostalgic, enveloping shoegaze: guitars that float like fog, perfect for a quiet night. If you need calm, try "When the Sun Hits", "Alison" and "Souvlaki Space Station".</p>
+                        <a href="https://open.spotify.com/search/Souvlaki%20Slowdive" target="_blank" rel="noopener">Listen on Spotify</a>
+                    </div>
+                </article>
+
+                <article class="slide" data-c1="#3b2a10" data-c2="#d09a3c">
+                    <div class="album-card">
+                        <h3>Your next recommendation</h3>
+                        <span>Artist · Year</span>
+                        <p>Copy this scene to add more albums and change the colors in data-c1 and data-c2.</p>
+                        <a href="https://open.spotify.com" target="_blank" rel="noopener">Listen on Spotify</a>
+                    </div>
+                </article>
+
             </div>
-        </article>
+            <button class="arrow next" type="button" aria-label="Next">&#8250;</button>
+        </div>
+        <p class="hint">Swipe or drag to see more</p>
+    </section>
+
+    <!-- ===== MOVIES ===== -->
+    <section class="showcase movies" id="movies">
+        <div class="showcase-head">
+            <h2>Movies to keep you company</h2>
+            <p>Stories that feel like a hug. Pick one for a quiet night.</p>
+        </div>
+
+        <div class="carousel">
+            <button class="arrow prev" type="button" aria-label="Previous">&#8249;</button>
+            <div class="track" tabindex="0" aria-label="Recommended movies">
+
+                <article class="slide" data-c1="#2b1d1a" data-c2="#c98a5b">
+                    <div class="album-card">
+                        <img class="cover poster" src="siempre-contigo.jpg" alt="Poster of the movie Siempre contigo" draggable="false" loading="lazy" onerror="this.style.display='none'">
+                        <h3>Siempre contigo</h3>
+                        <span>Movie · Year</span>
+                        <p>Write here why you recommend this movie.</p>
+                        <a href="https://www.google.com/search?q=Siempre+contigo+movie+where+to+watch" target="_blank" rel="noopener">Where to watch</a>
+                    </div>
+                </article>
+
+                <article class="slide" data-c1="#1d2b2a" data-c2="#5fa39a">
+                    <div class="album-card">
+                        <h3>Your next movie</h3>
+                        <span>Movie · Year</span>
+                        <p>Copy this scene to add more movies and change the colors in data-c1 and data-c2.</p>
+                        <a href="https://www.google.com/search?q=comforting+movies" target="_blank" rel="noopener">Where to watch</a>
+                    </div>
+                </article>
+
+            </div>
+            <button class="arrow next" type="button" aria-label="Next">&#8250;</button>
+        </div>
+        <p class="hint">Swipe or drag to see more</p>
+    </section>
+
+    <!-- ===== BOOKS ===== -->
+    <section class="books" id="books">
+        <h2>Books to keep you company</h2>
+        <div class="soon">
+            <strong>Coming soon</strong><br>
+            We are preparing book recommendations.
+        </div>
     </section>
 
     <footer>
@@ -139,20 +251,170 @@
     </footer>
 
     <script>
-      const music = document.querySelector('.music');
-      const scenes = document.querySelectorAll('.scene');
+    /* ---------- Sakura petals ---------- */
+    (function () {
+      var canvas = document.getElementById('sakura');
+      if (!canvas) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        canvas.style.display = 'none';
+        return;
+      }
+      var ctx = canvas.getContext('2d');
+      var colors = ['#ffd6e0', '#ffc2d4', '#ffb0c8', '#ffe3ea'];
+      var w = 0, h = 0, petals = [];
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            music.style.setProperty('--c1', entry.target.dataset.c1);
-            music.style.setProperty('--c2', entry.target.dataset.c2);
-            scenes.forEach((s) => s.classList.toggle('active', s === entry.target));
-          }
+      function newPetal(randomY) {
+        return {
+          x: Math.random() * w,
+          y: randomY ? Math.random() * h : -20,
+          size: 5 + Math.random() * 6,
+          speed: 0.4 + Math.random() * 0.9,
+          sway: 0.3 + Math.random() * 0.9,
+          phase: Math.random() * Math.PI * 2,
+          rot: Math.random() * Math.PI * 2,
+          rotSpeed: (Math.random() - 0.5) * 0.03,
+          alpha: 0.55 + Math.random() * 0.35,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        };
+      }
+
+      function resize() {
+        var dpr = window.devicePixelRatio || 1;
+        w = window.innerWidth;
+        h = window.innerHeight;
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        var count = Math.round(Math.min(45, Math.max(16, w / 32)));
+        while (petals.length < count) petals.push(newPetal(true));
+        petals.length = count;
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        petals.forEach(function (p) {
+          p.y += p.speed;
+          p.phase += 0.012;
+          p.x += Math.sin(p.phase) * p.sway + 0.25;
+          p.rot += p.rotSpeed;
+          if (p.y > h + 20) { p.y = -20; p.x = Math.random() * w; }
+          if (p.x > w + 30) p.x = -20;
+          if (p.x < -30) p.x = w + 20;
+
+          var s = p.size;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot);
+          ctx.globalAlpha = p.alpha;
+          ctx.fillStyle = p.color;
+          ctx.beginPath();
+          ctx.moveTo(0, -s);
+          ctx.bezierCurveTo(s, -s * 0.6, s * 0.8, s * 0.7, 0, s);
+          ctx.bezierCurveTo(-s * 0.8, s * 0.7, -s, -s * 0.6, 0, -s);
+          ctx.fill();
+          ctx.restore();
         });
-      }, { threshold: 0.6 });
+        requestAnimationFrame(draw);
+      }
 
-      scenes.forEach((s) => observer.observe(s));
+      window.addEventListener('resize', resize);
+      resize();
+      draw();
+    })();
+
+    /* ---------- Carousels (music and movies) ---------- */
+    document.querySelectorAll('.showcase').forEach(function (section) {
+      var track = section.querySelector('.track');
+      var slides = Array.prototype.slice.call(section.querySelectorAll('.slide'));
+      var prev = section.querySelector('.prev');
+      var next = section.querySelector('.next');
+      if (!track || !slides.length) return;
+
+      var current = null;
+      var ticking = false;
+
+      function nearest() {
+        var center = track.scrollLeft + track.clientWidth / 2;
+        var best = slides[0], bestDist = Infinity;
+        slides.forEach(function (s) {
+          var d = Math.abs(s.offsetLeft + s.offsetWidth / 2 - center);
+          if (d < bestDist) { bestDist = d; best = s; }
+        });
+        return best;
+      }
+
+      function setActive(slide) {
+        section.style.setProperty('--c1', slide.dataset.c1);
+        section.style.setProperty('--c2', slide.dataset.c2);
+        slides.forEach(function (s) { s.classList.toggle('active', s === slide); });
+      }
+
+      function update() {
+        var best = nearest();
+        if (best !== current) { current = best; setActive(best); }
+        prev.disabled = track.scrollLeft < 8;
+        next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 8;
+      }
+
+      function step() {
+        var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+        return slides[0].getBoundingClientRect().width + gap;
+      }
+
+      track.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () { ticking = false; update(); });
+      });
+      window.addEventListener('resize', update);
+
+      prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+      next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+
+      /* Mouse drag */
+      var down = false, moved = false, startX = 0, startScroll = 0;
+
+      track.addEventListener('pointerdown', function (e) {
+        if (e.pointerType !== 'mouse' || e.button !== 0) return;
+        down = true;
+        moved = false;
+        startX = e.clientX;
+        startScroll = track.scrollLeft;
+      });
+
+      window.addEventListener('pointermove', function (e) {
+        if (!down) return;
+        var dx = e.clientX - startX;
+        if (!moved && Math.abs(dx) > 5) {
+          moved = true;
+          track.classList.add('dragging');
+        }
+        if (moved) track.scrollLeft = startScroll - dx;
+      });
+
+      window.addEventListener('pointerup', function () {
+        if (!down) return;
+        down = false;
+        if (moved) {
+          track.classList.remove('dragging');
+          var best = nearest();
+          track.scrollTo({
+            left: best.offsetLeft + best.offsetWidth / 2 - track.clientWidth / 2,
+            behavior: 'smooth'
+          });
+        }
+      });
+
+      track.addEventListener('click', function (e) {
+        if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+      }, true);
+
+      track.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
+      update();
+    });
     </script>
 
 </body>
