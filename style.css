@@ -23,7 +23,7 @@ body {
 }
 
 /* Todo el contenido por encima de los árboles de fondo */
-header, .hero, main, footer, .showcase, .books {
+header, .hero, main, footer, .showcase, .about, .contact {
   position: relative;
   z-index: 1;
 }
@@ -85,6 +85,7 @@ header, .hero, main, footer, .showcase, .books {
   padding: 12px 26px;
   border-radius: 999px;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .btn:hover { background: var(--accent-dark); }
@@ -219,7 +220,7 @@ footer {
   .tree { width: 46vw; opacity: 0.45; }
 }
 
-/* ---------- Carruseles (música y películas) ---------- */
+/* ---------- Carrusel de música ---------- */
 
 @property --c1 { syntax: "<color>"; inherits: true; initial-value: #0b2238; }
 @property --c2 { syntax: "<color>"; inherits: true; initial-value: #1b6ca8; }
@@ -228,6 +229,7 @@ footer {
   --c1: #0b2238;
   --c2: #1b6ca8;
   margin: 0;
+  overflow: hidden;
   background: linear-gradient(135deg, var(--c1), var(--c2), var(--c1));
   background-size: 250% 250%;
   animation: flow 14s ease-in-out infinite;
@@ -236,15 +238,32 @@ footer {
   padding: 60px 0 36px;
 }
 
-.showcase.movies {
-  --c1: #2b1d1a;
-  --c2: #c98a5b;
-}
-
 @keyframes flow {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* Fondo difuminado y semitransparente del álbum activo */
+.bg-img {
+  position: absolute;
+  inset: -60px;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(26px) saturate(1.15);
+  opacity: 0;
+  transition: opacity 1.4s ease;
+  pointer-events: none;
+}
+
+.bg-img.on { opacity: 0.4; }
+
+.showcase-head,
+.carousel,
+.hint {
+  position: relative;
+  z-index: 1;
 }
 
 .showcase-head {
@@ -257,7 +276,6 @@ footer {
 .showcase-head p { opacity: 0.85; }
 
 .carousel {
-  position: relative;
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -332,11 +350,6 @@ footer {
   user-select: none;
 }
 
-.cover.poster {
-  max-width: 240px;
-  aspect-ratio: 2 / 3;
-}
-
 .arrow {
   position: absolute;
   top: 50%;
@@ -367,22 +380,36 @@ footer {
   margin: 14px 0 0;
 }
 
-/* ---------- Libros ---------- */
+/* ---------- La música lo mezcla todo ---------- */
 
-.books {
+.about {
   max-width: 900px;
   margin: 0 auto;
-  padding: 48px 20px 60px;
+  padding: 60px 20px 20px;
+}
+
+.about h2 { text-align: center; }
+
+.about-intro {
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 640px;
+  margin: 0 auto 28px;
+}
+
+/* ---------- Contacto ---------- */
+
+.contact {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
   text-align: center;
 }
 
-.soon {
-  display: inline-block;
-  border: 2px dashed var(--border);
-  border-radius: 14px;
-  padding: 22px 34px;
+.contact p {
   color: var(--muted);
-  background: rgba(255, 255, 255, 0.75);
+  margin: 0 0 22px;
 }
 
 /* ---------- Accesibilidad ---------- */
@@ -391,5 +418,6 @@ footer {
   .showcase { animation: none; }
   .sway { animation: none; }
   .album-card { transition: none; }
+  .bg-img { transition: none; }
   .track { scroll-behavior: auto; }
 }
